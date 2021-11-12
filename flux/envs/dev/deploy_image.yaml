@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: k8-node-app-deployment
 spec:
-  replicas: 9
+  replicas: 1
   template:
     spec:
       containers:
