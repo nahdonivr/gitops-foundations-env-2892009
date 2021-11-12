@@ -19,4 +19,4 @@ spec:
         - name: kube-node-app
           image: webfairooz/gitops-foundations:1.0
           ports:
-            - containerPort: 3001
+            - containerPort: 8080
