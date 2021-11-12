@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-node-app-prod-deployment
+  namespace: flux-node-exercise-prod
+  labels:
+    app: node-prod-gitops-foundations
+spec:
+  selector:
+    matchLabels:
+      app: node-prod-gitops-foundations
+  replicas: 3 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: node-prod-gitops-foundations
+    spec:
+      containers:
+        - name: kube-node-prod-app
+          image: webfairooz/gitops-foundations:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 2

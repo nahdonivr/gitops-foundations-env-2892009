@@ -1,5 +1,5 @@
 bases:
-  - ../../../app
+  - ../../../app/dev
 patches:
   - path: deploy_image.yaml
     target:
