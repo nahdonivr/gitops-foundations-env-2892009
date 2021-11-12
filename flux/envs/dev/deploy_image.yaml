@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: k8-node-app-deployment
 spec:
-  replicas: 6 # tells deployment to run 1 pods matching the template
+  replicas: 6
