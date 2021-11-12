@@ -17,14 +17,7 @@ spec:
     spec:
       containers:
         - name: kube-node-app
-          image: webfairooz/gitops-foundations:2.0
+          image: webfairooz/k8-app:1.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
-          livenessProbe:
-          httpGet:
-            path: /actuator/health
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          failureThreshold: 2
+            - containerPort: 3001
