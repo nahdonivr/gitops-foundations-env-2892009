@@ -1,30 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitops-foundations
-  namespace: flux-exercise
+  name: k8-node-app-deployment
+  namespace: flux-node-exercise
   labels:
-    app: gitops-foundations
+    app: node-gitops-foundations
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: gitops-foundations
-  template:
+      app: node-gitops-foundations
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
     metadata:
       labels:
-        app: gitops-foundations
+        app: node-gitops-foundations
     spec:
       containers:
-      - name: gitops-foundations
-        image: webfairooz/gitops-foundations:2.0
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8080
-        livenessProbe:
-          httpGet:
-            path: /actuator/health
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          failureThreshold: 2
+        - name: kube-node-app
+          image: webfairooz/k8-app:1.0
+          ports:
+            - containerPort: 3001
