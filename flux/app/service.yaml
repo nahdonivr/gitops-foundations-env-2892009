@@ -11,5 +11,4 @@ spec:
     app: node-gitops-foundations
   ports:
     - port: 80
-      protocol: TCP
       targetPort: 8080
