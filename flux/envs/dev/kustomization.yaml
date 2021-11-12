@@ -1,4 +1,6 @@
 bases:
   - ../../../app
 patches:
-  - deploy_image.yaml
+  - path: deploy_image.yaml
+    target:
+      kind: Deployment
