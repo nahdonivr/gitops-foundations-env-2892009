@@ -1,4 +1,2 @@
 bases:
   - ../../../app
-patches:
-  - deploy_image.yaml
